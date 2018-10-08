@@ -14,6 +14,7 @@
  *  @author    Adnan M.Sagar, PhD. <adnan@websemantics.ca>
  *
  *  @param {Object} l, the document current location
+ *  @param {Boolean} projectPages, true by default, https://help.github.com/articles/user-organization-and-project-pages
  *
  */
 
@@ -22,7 +23,7 @@
    /* redirect all 404 trafic to index.html */
    function redirect() {
      l.replace(l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + '/?' +
-              (l.pathname ? 'ref=' + l.pathname : ''))
+              (l.pathname ? 'ref=' + l.pathname.slice(1) : '') + l.hash)
    }
 
    /* resolve 404 redirects into internal routes */
@@ -31,14 +32,10 @@
        var q = {}
        l.search.slice(1).split('&').forEach(function(v) {
          var a = v.split('=')
-         q[a[0]] = a.slice(1).join('=').replace(/~and~/g, '&')
+         q[a[0]] = a[1]
        })
-       if (q.p !== undefined) {
-         window.history.replaceState(null, null,
-           repo + (q.p || '') +
-           (q.q ? ('?' + q.q) : '') +
-           l.hash
-         )
+       if (q.ref !== undefined) {
+         window.history.replaceState(null, null, q.ref + l.hash)
        }
      }
    }
