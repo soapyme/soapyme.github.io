@@ -20,7 +20,7 @@
 
 ;(function(l, projectPages) {
 
-  var repo = projectPages ? '/' + l.pathname.split('/')[1] : ''
+  var repo = projectPages ? '/' : ''
 
    /* redirect all 404 trafic to index.html */
    function redirect() {
