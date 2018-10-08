@@ -14,7 +14,6 @@
  *  @author    Adnan M.Sagar, PhD. <adnan@websemantics.ca>
  *
  *  @param {Object} l, the document current location
- *  @param {Boolean} projectPages, true by default, https://help.github.com/articles/user-organization-and-project-pages
  *
  */
 
