@@ -2,23 +2,7 @@
 <head>
 <title> Test
 </title>
-<script>
-  var redirect = location.href
-</script>
 <script type="text/javascript" src="ghspa.js"></script>
-<script>
-function getQueryString(name)
-  {
-       var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
-       var r = window.location.search.substr(1).match(reg);
-       if ( r != null && r[2] != null) {
-        return unescape(r[2]);
-       } else {
-        return "";
-       }
-  }
-var aaa = getQueryString('ref');
-  </script>
 </head>
 <body>
 <p> Hello World!</p>
