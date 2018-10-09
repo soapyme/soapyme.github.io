@@ -44,3 +44,16 @@
   document.title === '404' ? redirect() : resolve()
 
 }(window.location))
+
+function getQueryString(name)
+  {
+       var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+       var r = window.location.search.substr(1).match(reg);
+       if ( r != null && r[2] != null) {
+        return unescape(r[2]);
+       } else {
+        return "";
+       }
+  }
+var aaa = getQueryString('ref');
+var refer = window.location.href;
